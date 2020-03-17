@@ -5,16 +5,36 @@
 {% block estilo %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+
+<style>
+  .formulario{
+    text-align: center;
+    width: 600px;
+    background-color:rgba(255,255,255,0.8);
+    padding: 0.5cm 2cm 0.5cm 2cm;
+  }
+
+  .myTable { background-color:#FFFFE0;border-collapse:collapse;font-family:Georgia, Garamond, Serif;color:black; }
+  .myTable th { width:50%;font:bold 18px/1.1em Arial, Helvetica, Sans-Serif;text-shadow: 1px 1px 4px black;letter-spacing:0.3em;background-color:#BDB76B;color:white; }
+  .myTable td, .myTable th { padding:5px;border:1px solid #BDB76B; }
+  .myTable td { line-height:2.5em; }
+
+
+</style>
+
+
+
 {% endblock%}
 
 
 {% block contenido %}
 
+
 <div class="container" id="primero" style="padding-top: 5%">
   <h2>Ingredientes</h2>
   <p>Escribe para buscar por nombre del ingredientes</p>
 
-  <table id="datatable" class="table table-bordered table-striped">
+  <table id="datatable" class="table table-bordered table-striped myTable">
       <thead>
           <tr>
               <th>Nombre</th>

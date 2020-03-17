@@ -22,7 +22,7 @@ def Home(request):
 class Login(FormView):
     template_name = 'loginUser.html'
     form_class = FormularioLogin
-    success_url = reverse_lazy('principalUser')
+    success_url = reverse_lazy('home')
 
     @method_decorator(csrf_protect)
     @method_decorator(never_cache)
@@ -53,6 +53,6 @@ class RegistroUsuario(CreateView):
     success_url = reverse_lazy('principalUser')
 
 class pedido(TemplateView):
-    template_name= 'pedido.html'
+    template_name= 'factura.html'
 
 

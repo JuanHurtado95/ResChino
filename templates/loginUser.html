@@ -10,13 +10,6 @@
     background-color:rgba(255,255,255,0.8);
     padding: 0.5cm 2cm 0.5cm 2cm;
   }
-
-  .primera-parte{
-    background-image: url(images/fondo3.jpg);
-    background-size: contain;
-    padding: 1cm;
-  }
-  
 </style>
 
 
@@ -24,7 +17,8 @@
 
 
 {% block contenido %}
-<form class="formulario" method="POST">
+<div class="row formulario">
+<form  method="POST">
 
   <h1>Inicia Sesión</h1>
   {% csrf_token %}
@@ -42,7 +36,8 @@
           <i class="fas fa-key icon"></i>
           <input type="password" placeholder="Contraseña" name="password">
       </div>
-      <input type="submit" value="Iniciar Sesión" class="button">
+      <input type="submit" value="Iniciar Sesión" class="btn btn-info btn-fill pull-right">
 </form>
 <p>¿No tienes una cuenta? </p>
+</div>
 {% endblock %}
