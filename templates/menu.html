@@ -1,0 +1,69 @@
+{% extends "home.html" %}
+
+{% block title %} Menu {% endblock %}
+
+{% block estilo %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">  
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+{% endblock%}
+
+
+{% block contenido %}
+
+<div class="container" id="primero" style="padding-top: 5%">
+  <h2>Ingredientes</h2>
+  <p>Escribe para buscar por nombre del ingredientes</p>
+
+  <table id="datatable" class="table table-bordered table-striped">
+      <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Tipo</th>
+              <th>Precio</th>
+              
+          </tr>
+      </thead>
+      <tbody id="myTable">
+          {% for asignatura in asignaturas %}
+          <tr>
+              <td>{{ asignatura.nombre }}</td>
+              <td>{{ asignatura.tipo }}</td>
+              <td>{{ asignatura.precio}}</td>
+              
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+
+</div>
+
+<div class="ped">
+
+  {% csrf_token %}
+
+  {% if user.is_authenticated  %}
+    
+  <div class="contenedor">
+    <a class="btn btn-md btn-warning" href="{% url 'pedido' %}"
+        id="btn-abrir-popup">HACER PEDIDO</a>
+  </div>
+  {% endif %}
+</div>
+
+
+{% endblock contenido %}
+
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+<script>
+  $(document).ready(function () {
+      $('#datatable').DataTable({
+          language: {
+              search: "Buscar:"
+          }
+      });
+  });
+</script>
+ 
+ 
+ <!-- *********************************************  -->
